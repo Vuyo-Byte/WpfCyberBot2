@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bot icon.png" />
+    <None Remove="free-user-icon.png" />
+    <None Remove="ICON.png" />
+    <None Remove="image_1c8ab0d3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- MySQL driver (Part 3). Visual Studio restores this automatically. -->
+    <PackageReference Include="MySqlConnector" Version="2.3.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Make sure the startup sound is copied next to the .exe -->
+    <None Update="chatBot.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bot icon.png" />
+    <Resource Include="free-user-icon.png" />
+    <Resource Include="ICON.png" />
+    <Resource Include="image_1c8ab0d3.jpg" />
+  </ItemGroup>
+
+</Project>
