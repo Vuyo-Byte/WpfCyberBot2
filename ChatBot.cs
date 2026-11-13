@@ -190,11 +190,37 @@ namespace CyberChatBot
                 return;
             }
 
-            int tipIndex = NlpProcessor.TipIndexFor(keyword);
-            if (tipIndex < 0)
-                tipIndex = _random.Next(0, 3);
+            Speak(_tipsDatabase[row, NextTipIndex(row)]);
+        }
 
-            Speak(_tipsDatabase[row, tipIndex]);
+        // Shuffle-bag: every tip in a topic is shown once, in random order,
+        // before any tip repeats. The same tip is never shown twice in a row.
+        private readonly Dictionary<int, List<int>> _tipBags = new Dictionary<int, List<int>>();
+        private int _lastTipRow = -1;
+        private int _lastTipIndex = -1;
+
+        private int NextTipIndex(int row)
+        {
+            if (!_tipBags.TryGetValue(row, out List<int>? bag) || bag.Count == 0)
+            {
+                bag = Enumerable.Range(0, 3).OrderBy(_ => _random.Next()).ToList();
+
+                // A fresh bag must not start with the tip we just gave.
+                if (_lastTipRow == row && bag[0] == _lastTipIndex)
+                {
+                    int last = bag.Count - 1;
+                    (bag[0], bag[last]) = (bag[last], bag[0]);
+                }
+
+                _tipBags[row] = bag;
+            }
+
+            int index = bag[0];
+            bag.RemoveAt(0);
+
+            _lastTipRow = row;
+            _lastTipIndex = index;
+            return index;
         }
 
         // =====================================================================
