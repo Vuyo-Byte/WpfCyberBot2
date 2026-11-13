@@ -19,7 +19,7 @@ namespace CyberChatBot
             Text = text;
             Options = options.ToList();
             CorrectIndex = correctIndex;
-            Explanation = explanation;
+            Explanation = explanation; 
         }
 
         /// <summary>Same question with the multiple-choice answers in a random order.</summary>
