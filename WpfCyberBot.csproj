@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <!-- MySQL driver (Part 3). Visual Studio restores this automatically. -->
-    <PackageReference Include="MySqlConnector" Version="2.3.7" />
+    <PackageReference Include="MySqlConnector" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
