@@ -162,7 +162,7 @@ namespace CyberChatBot
                     1,
                     "Backups let you restore your data after an attack, theft or hardware failure."),
 
-                // ---------- True / False ----------
+                // ---------- True / False -----------
                 new QuizQuestion(
                     "True or false: Using the same password on all your accounts is safe as long as it is long.",
                     new[] { "True", "False" },
