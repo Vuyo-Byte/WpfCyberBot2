@@ -2,6 +2,12 @@
 
 A WPF (XAML) desktop chatbot that teaches cybersecurity. Part 3 builds on Parts 1 and 2 (greeting, name, tips, dynamic responses) and adds a **MySQL-backed task assistant**, a **quiz mini-game**, **NLP-style keyword detection** and an **activity log**.
 
+
+
+
+
+
+
 > Part 3 is GUI-only (WPF/XAML). Built with C# on .NET 8.
 
 ## Features
