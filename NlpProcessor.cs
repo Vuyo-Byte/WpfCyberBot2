@@ -9,6 +9,7 @@ namespace CyberChatBot
     /// <summary>What the user is trying to do, worked out from their words.</summary>
     public enum Intent
     {
+
         None,
         ShowLog,
         AddTask,
